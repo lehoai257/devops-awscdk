@@ -1,6 +1,8 @@
 
 # Welcome to your CDK Python project!
 
+![alt text](https://github.com/lehoai257/devops-awscdk/blob/main/Diagram.png)
+
 This is a blank project for CDK development with Python.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
