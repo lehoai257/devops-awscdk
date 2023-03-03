@@ -1,28 +1,17 @@
 #!/usr/bin/env python3
-import os
 
-import aws_cdk as cdk
+from aws_cdk import App
 
-from sbifpt_aws_dev_ops_test.sbifpt_aws_dev_ops_test_stack import SbifptAwsDevOpsTestStack
+from sbifpt_aws_dev_ops_test.vpc_stack import CdkVpcStack
+from sbifpt_aws_dev_ops_test.ec2_stack import CdkEc2Stack
+from sbifpt_aws_dev_ops_test.lambda_zipfile_stack import LambdaZipFileStack
 
+app = App()
 
-app = cdk.App()
-SbifptAwsDevOpsTestStack(app, "SbifptAwsDevOpsTestStack",
-    # If you don't specify 'env', this stack will be environment-agnostic.
-    # Account/Region-dependent features and context lookups will not work,
-    # but a single synthesized template can be deployed anywhere.
+vpc_stack = CdkVpcStack(app, "cdk-vpc")
+ec2_stack = CdkEc2Stack(app, "cdk-ec2",
+                        vpc=vpc_stack.vpc)
+lambda_stack = LambdaZipFileStack(app, "cdk-lambda")
 
-    # Uncomment the next line to specialize this stack for the AWS Account
-    # and Region that are implied by the current CLI configuration.
-
-    #env=cdk.Environment(account=os.getenv('CDK_DEFAULT_ACCOUNT'), region=os.getenv('CDK_DEFAULT_REGION')),
-
-    # Uncomment the next line if you know exactly what Account and Region you
-    # want to deploy the stack to. */
-
-    #env=cdk.Environment(account='123456789012', region='us-east-1'),
-
-    # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
-    )
 
 app.synth()
