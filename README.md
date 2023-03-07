@@ -3,16 +3,19 @@
 
 ![alt text](https://github.com/lehoai257/devops-awscdk/blob/main/Diagram.png)
 
-This is a blank project for CDK development with Python.
+This is a test lab for CDK development with Python.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+We need to change the values of the following two variables in ec2_stack.py:
+```
+key_name = "key_pair_name"
+```
+-> Please create a key pair in EC2 and substitute in this variable.
+```
+CERTIFICATE= "arn_acm_certificate"
+```
+-> Please create an acm certificate or already have one then replace the ACM's arn in this variable. (Please use ACM on the same region)
+-> Due to the cost of creating a new ACM certificate, it needs to be imported manually into the cdk.
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
 
 To manually create a virtualenv on MacOS and Linux:
 
@@ -44,10 +47,6 @@ At this point you can now synthesize the CloudFormation template for this code.
 ```
 $ cdk synth
 ```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
 
 ## Useful commands
 
