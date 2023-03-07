@@ -5,7 +5,7 @@ function checkJavaHome {
     if [ -z ${JAVA_HOME} ]
     then
         sudo yum update
-        sudo amazon-linux-extras install java-openjdk11
+        sudo amazon-linux-extras install java-openjdk11 -y
         export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
         export PATH=$PATH:$JAVA_HOME/bin
     else
