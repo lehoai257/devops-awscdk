@@ -4,7 +4,7 @@ TOMCAT_URL="https://downloads.apache.org/tomcat/tomcat-8/v8.5.86/bin/apache-tomc
 function checkJavaHome {
     if [ -z ${JAVA_HOME} ]
     then
-        sudo amazon-linux-extras install -y java-openjdk11
+        sudo amazon-linux-extras install java-openjdk11 -y
         export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
         export PATH=$PATH:$JAVA_HOME/bin
     else
