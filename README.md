@@ -16,6 +16,8 @@ CERTIFICATE= "arn_acm_certificate"
 -> Please create an acm certificate or already have one then replace the ACM's arn in this variable. (Please use ACM on the same region)
 -> Due to the cost of creating a new ACM certificate, it needs to be imported manually into the cdk.
 
+###If you have deployed this project before, please remove ```tomcat-simple-web``` in s3 bucket.
+
 
 To manually create a virtualenv on MacOS and Linux:
 
