@@ -1,5 +1,5 @@
 #!/bin/bash
-TOMCAT_URL="https://downloads.apache.org/tomcat/tomcat-8/v8.5.86/bin/apache-tomcat-8.5.86.tar.gz"
+TOMCAT_URL="https://downloads.apache.org/tomcat/tomcat-8/v8.5.87/bin/apache-tomcat-8.5.87.tar.gz"
 
 function checkJavaHome {
     if [ -z ${JAVA_HOME} ]
@@ -25,7 +25,7 @@ if [ -d "/opt/tomcat/8_5" ]
 then
     #uncompress apache-tomcat*.tar.gz
     cd /etc
-    sudo tar xzf apache-tomcat-8.5.86.tar.gz -C "/opt/tomcat/8_5" --strip-components=1
+    sudo tar xzf apache-tomcat-8.5.87.tar.gz -C "/opt/tomcat/8_5" --strip-components=1
     sudo groupadd tomcat
     sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
